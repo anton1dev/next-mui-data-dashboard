@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import {
   Box,
   Button,
@@ -16,25 +16,24 @@ const Settings = () => {
   const [showOrders, setShowOrders] = React.useState(true);
   const [showCustomers, setShowCustomers] = React.useState(true);
 
-  const handleShowRevenueChange = (event) => {
+  const handleShowRevenueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowRevenue(event.target.checked);
   };
 
-  const handleShowProfitChange = (event) => {
+  const handleShowProfitChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowProfit(event.target.checked);
   };
 
-  const handleShowOrdersChange = (event) => {
+  const handleShowOrdersChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowOrders(event.target.checked);
   };
 
-  const handleShowCustomersChange = (event) => {
+  const handleShowCustomersChange = (event: ChangeEvent<HTMLInputElement>) => {
     setShowCustomers(event.target.checked);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // TODO: handle form submission
   };
   return (
     <>

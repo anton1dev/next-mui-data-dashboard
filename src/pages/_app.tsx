@@ -6,12 +6,21 @@ import darkTheme from "@/theme/darkTheme";
 import lightTheme from "@/theme/lightTheme";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
+import { AppProps } from "next/app";
+import { Session } from "next-auth";
+
+interface MyAppProps extends AppProps {
+  pageProps: {
+    session: Session | null;
+    [key: string]: any;
+  };
+}
 
 const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
 });
 
-const App = ({ Component, pageProps: { session, ...pageProps } }) => {
+const App: React.FC<MyAppProps> = ({ Component, pageProps: { session, ...pageProps } }) => {
   const [mode, setMode] = React.useState<"light" | "dark">("dark");
   const colorMode = React.useMemo(
     () => ({
